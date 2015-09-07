@@ -1,1 +1,9 @@
 /* CSS declarations go here */
+
+h1{
+	text-align: center;
+}
+
+.container{
+	margin-top: 20px;
+}

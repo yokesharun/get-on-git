@@ -1,3 +1,10 @@
+// routes area
+
+Router.route('/', function () {
+  // render the Home template with a custom data context
+  this.render('Index');
+});
+
 if (Meteor.isClient) {
   // counter starts at 0
   Session.setDefault('counter', 0);
