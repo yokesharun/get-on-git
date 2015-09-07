@@ -19,6 +19,7 @@ Template.home.events({
       console.log(data.items);
         $.each(data.items, function(index, element) {
             console.log(element);
+            $('#collection_list').append('<li class="collection-item avatar"><img src="'+ element.owner.avatar_url +'" class="circle"><span class="title">Username : <em><a href="'+ element.owner.html_url +'">'+ element.owner.login+'</a></em></span><p>Repo Link : <a href="'+ element.html_url+'">'+ element.html_url+'</a> <br><span>Clone Url :</span> <pre>'+ element.clone_url +'</pre></p></li>');
         });
     }
     });
