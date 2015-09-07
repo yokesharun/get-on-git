@@ -7,6 +7,3 @@
 meteor-platform
 autopublish
 insecure
-twbs:bootstrap
-iron:router
-jquery
