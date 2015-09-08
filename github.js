@@ -21,10 +21,34 @@ Template.home.events({
     data: { q: search_value, page : 1, per_page : 20 }, 
     dataType: 'json',
     success: function (data) { 
-      console.log(data.items);
+      // console.log(data.items);
       $('#collection_list').empty();
         $.each(data.items, function(index, element) {
             $('#collection_list').append('<li class="collection-item avatar"><img src="'+ element.owner.avatar_url +'" class="circle"><span class="title">Username : <em><a href="'+ element.owner.html_url +'">'+ element.owner.login+'</a></em></span><p>Repo Link : <a href="'+ element.html_url+'">'+ element.html_url+'</a> <br><span>Clone Url :</span> <pre>'+ element.clone_url +'</pre></p></li>');
+        });
+    }
+    });
+  }
+
+  }
+});
+
+Template.users.events({
+  'submit form': function(event){
+    event.preventDefault();
+    var search_value = $('#search_value').val();
+    if(search_value != "")
+    {
+    $.ajax({ 
+    type: 'GET', 
+    url: 'https://api.github.com/search/users', 
+    data: { q: search_value, page : 1, per_page : 20 }, 
+    dataType: 'json',
+    success: function (data) { 
+      // console.log(data.items);
+      $('#collection_list').empty();
+        $.each(data.items, function(index, element) {
+            $('#collection_list').append('<li class="collection-item avatar"><img src="'+ element.avatar_url +'" class="circle"><span class="title">Username : <em><a href="'+ element.html_url +'">'+ element.login+'</a></em></span><p>Score : '+ element.score +'</p></li>');
         });
     }
     });
