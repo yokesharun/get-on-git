@@ -1,12 +1,12 @@
 <template name="home">
-	
+	{{> nav}}	
 	<div class="container">
-	<h1 class="text-center">Get On Git!</h1>
+		<h5 class="text-center"> Search Repositories </h5>
 	<div class="row">
 		<div class="col-md-12">
 			<form class="form-group"> 
 			      <input type="text" class="form-control" id="search_value" placeholder="Enter Here to Search From Github" autocomplete="off">
-			      <button type="submit" class="btn btn-primary text-center">Search Now!</button>
+			      <button type="submit" class="btn btn-primary text-center">Search</button>
 			</form>
 		</div>
 	</div>
@@ -18,4 +18,50 @@
   </ul>
 	</div>
 </template>
+
+<template name="users">
+	{{> nav}}	
+	<div class="container">
+		<h5 class="text-center"> Search Users </h5>
+	<div class="row">
+		<div class="col-md-12">
+			<form class="form-group"> 
+			      <input type="text" class="form-control" id="search_value" placeholder="Enter Here to Search From Github" autocomplete="off">
+			      <button type="submit" class="btn btn-primary text-center">Search</button>
+			</form>
+		</div>
+	</div>
+	<ul class="collection" id="collection_list">
+		<!-- append data -->
+
+		<li class="collection-item"> Your Results Here !!</li>
+   
+  </ul>
+	</div>
+</template>
+
+<template name="nav">
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.0/js/materialize.min.js"></script>
+	<div class="navbar-fixed">
+     <nav>
+    <div class="nav-wrapper">
+      <a href="#!" class="brand-logo center">Get On Git - Search Module</a>
+      <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
+      <ul class="right hide-on-med-and-down">
+        <li class="active" ><a href="/">Repositories</a></li>
+        <li><a href="/users">Users</a></li>
+        <li><a href="/issues">Issues</a></li>
+        <li><a href="/code">Code</a></li>
+      </ul>
+      <ul class="side-nav" id="mobile-demo">
+        <li><a href="sass.html">Sass</a></li>
+        <li><a href="badges.html">Components</a></li>
+        <li><a href="collapsible.html">Javascript</a></li>
+        <li><a href="mobile.html">Mobile</a></li>
+      </ul>
+    </div>
+  </nav>
+          
+  </div>
+</template>	
 
