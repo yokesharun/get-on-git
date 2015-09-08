@@ -6,3 +6,8 @@
 .container{
 	margin-top: 20px;
 }
+
+.loader{
+	display: none;
+	text-align: center;
+}

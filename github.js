@@ -13,6 +13,7 @@ Template.home.events({
   'submit form': function(event){
     event.preventDefault();
     var search_value = $('#search_value').val();
+    $('#loading').fadeIn(1000);
     if(search_value != "")
     {
     $.ajax({ 
@@ -24,6 +25,7 @@ Template.home.events({
       // console.log(data.items);
       $('#collection_list').empty();
       $('#heading').empty().text(data.total_count + ' Results found for '+ search_value);
+      $('#loading').fadeOut(1000);
         $.each(data.items, function(index, element) {
             $('#collection_list').append('<li class="collection-item avatar"><img src="'+ element.owner.avatar_url +'" class="circle"><span class="title">Username : <em><a href="'+ element.owner.html_url +'">'+ element.owner.login+'</a></em></span><p>Repo Link : <a href="'+ element.html_url+'">'+ element.html_url+'</a> <br><span>Clone Url :</span> <pre>'+ element.clone_url +'</pre></p></li>');
         });
@@ -38,6 +40,7 @@ Template.users.events({
   'submit form': function(event){
     event.preventDefault();
     var search_value = $('#search_value').val();
+    $('#loading').fadeIn(1000);
     if(search_value != "")
     {
     $.ajax({ 
@@ -49,6 +52,7 @@ Template.users.events({
       // console.log(data.items);
       $('#collection_list').empty();
       $('#heading').empty().text(data.total_count + ' Results found for '+ search_value);
+      $('#loading').fadeOut(1000);
         $.each(data.items, function(index, element) {
             $('#collection_list').append('<li class="collection-item avatar"><img src="'+ element.avatar_url +'" class="circle"><span class="title">Username : <em><a href="'+ element.html_url +'">'+ element.login+'</a></em></span><p>Score : '+ element.score +'</p></li>');
         });
